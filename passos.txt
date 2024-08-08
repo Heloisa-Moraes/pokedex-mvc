@@ -26,8 +26,14 @@ ferramenta dotnet ef
 
 para atualizar a ferramenta que já foi instalada: dotnet tool update --global dotnet-ef --version 8.0.7
 
-dotnet ef  migrations add inicializando-banco
+
+(1º comando)
+
+dotnet ef  migrations add inicializando-banco 
 
 criar o banco: 
 
 dotnet ef database update
+
+
+

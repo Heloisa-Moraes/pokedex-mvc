@@ -50,13 +50,13 @@ namespace Pokedex.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "f4779104-790e-4161-baca-feb91883936d",
+                            Id = "a49bad94-7bcc-4324-b625-941054c939d7",
                             Name = "Administrador",
                             NormalizedName = "ADMINISTRADOR"
                         },
                         new
                         {
-                            Id = "079b6889-2fca-44bc-8af1-179e7e375527",
+                            Id = "b009b5ff-1953-4296-8028-f6f49d6e5abb",
                             Name = "Usuário",
                             NormalizedName = "USUÁRIO"
                         });
@@ -153,17 +153,17 @@ namespace Pokedex.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "2829d0a9-180a-4e55-98f9-d702484ddd61",
+                            Id = "49928701-a2e8-4661-8104-2a8b03141f08",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3dc4c390-84fb-482c-8251-d684d029dd50",
+                            ConcurrencyStamp = "2606faa7-1c3c-4c39-adf0-396530700fd7",
                             Email = "admin@pokedex.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@POKEDEX.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEOOn30I3dHf7UZpCyySfGZh39jODp1vlzrOHAzIWoa19v3ZvGJ2d3ZEnS4C7QPTirw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEH02PKXvzBsKaG28Sze3umIgoW+BuhpVNLjtinGETgkjI11NBmuK+wgTYoZtTbtlLg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "08e1b5be-b364-4944-be91-59c403640bd0",
+                            SecurityStamp = "7cb373cf-1e25-4c35-a65e-04f5764b4400",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
@@ -233,13 +233,13 @@ namespace Pokedex.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "2829d0a9-180a-4e55-98f9-d702484ddd61",
-                            RoleId = "f4779104-790e-4161-baca-feb91883936d"
+                            UserId = "49928701-a2e8-4661-8104-2a8b03141f08",
+                            RoleId = "a49bad94-7bcc-4324-b625-941054c939d7"
                         },
                         new
                         {
-                            UserId = "2829d0a9-180a-4e55-98f9-d702484ddd61",
-                            RoleId = "079b6889-2fca-44bc-8af1-179e7e375527"
+                            UserId = "49928701-a2e8-4661-8104-2a8b03141f08",
+                            RoleId = "b009b5ff-1953-4296-8028-f6f49d6e5abb"
                         });
                 });
 
@@ -333,12 +333,7 @@ namespace Pokedex.Migrations
                         .HasColumnType("int")
                         .HasColumnOrder(2);
 
-                    b.Property<int?>("PokemonNumero1")
-                        .HasColumnType("int");
-
                     b.HasKey("PokemonNumero", "TipoId");
-
-                    b.HasIndex("PokemonNumero1");
 
                     b.HasIndex("TipoId");
 
@@ -410,7 +405,7 @@ namespace Pokedex.Migrations
                     b.HasData(
                         new
                         {
-                            UsuarioId = "2829d0a9-180a-4e55-98f9-d702484ddd61",
+                            UsuarioId = "49928701-a2e8-4661-8104-2a8b03141f08",
                             DataNascimento = new DateTime(1997, 3, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Foto = "/img/users/avatar.png",
                             Nome = "Heloisa Galiano de Moraes"
@@ -495,10 +490,6 @@ namespace Pokedex.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Pokedex.Models.Pokemon", null)
-                        .WithMany("Pokemons")
-                        .HasForeignKey("PokemonNumero1");
-
                     b.HasOne("Pokedex.Models.Tipo", "Tipo")
                         .WithMany("Pokemons")
                         .HasForeignKey("TipoId")
@@ -523,8 +514,6 @@ namespace Pokedex.Migrations
 
             modelBuilder.Entity("Pokedex.Models.Pokemon", b =>
                 {
-                    b.Navigation("Pokemons");
-
                     b.Navigation("Tipos");
                 });
 

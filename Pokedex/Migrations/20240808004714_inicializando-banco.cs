@@ -310,8 +310,7 @@ namespace Pokedex.Migrations
                 columns: table => new
                 {
                     PokemonNumero = table.Column<int>(type: "int", nullable: false),
-                    TipoId = table.Column<int>(type: "int", nullable: false),
-                    PokemonNumero1 = table.Column<int>(type: "int", nullable: true)
+                    TipoId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -322,11 +321,6 @@ namespace Pokedex.Migrations
                         principalTable: "Pokemon",
                         principalColumn: "Numero",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_PokemonTipo_Pokemon_PokemonNumero1",
-                        column: x => x.PokemonNumero1,
-                        principalTable: "Pokemon",
-                        principalColumn: "Numero");
                     table.ForeignKey(
                         name: "FK_PokemonTipo_Tipo_TipoId",
                         column: x => x.TipoId,
@@ -341,28 +335,28 @@ namespace Pokedex.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "079b6889-2fca-44bc-8af1-179e7e375527", null, "Usuário", "USUÁRIO" },
-                    { "f4779104-790e-4161-baca-feb91883936d", null, "Administrador", "ADMINISTRADOR" }
+                    { "a49bad94-7bcc-4324-b625-941054c939d7", null, "Administrador", "ADMINISTRADOR" },
+                    { "b009b5ff-1953-4296-8028-f6f49d6e5abb", null, "Usuário", "USUÁRIO" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "2829d0a9-180a-4e55-98f9-d702484ddd61", 0, "3dc4c390-84fb-482c-8251-d684d029dd50", "admin@pokedex.com", true, false, null, "ADMIN@POKEDEX.COM", "ADMIN", "AQAAAAIAAYagAAAAEOOn30I3dHf7UZpCyySfGZh39jODp1vlzrOHAzIWoa19v3ZvGJ2d3ZEnS4C7QPTirw==", null, false, "08e1b5be-b364-4944-be91-59c403640bd0", false, "Admin" });
+                values: new object[] { "49928701-a2e8-4661-8104-2a8b03141f08", 0, "2606faa7-1c3c-4c39-adf0-396530700fd7", "admin@pokedex.com", true, false, null, "ADMIN@POKEDEX.COM", "ADMIN", "AQAAAAIAAYagAAAAEH02PKXvzBsKaG28Sze3umIgoW+BuhpVNLjtinGETgkjI11NBmuK+wgTYoZtTbtlLg==", null, false, "7cb373cf-1e25-4c35-a65e-04f5764b4400", false, "Admin" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "079b6889-2fca-44bc-8af1-179e7e375527", "2829d0a9-180a-4e55-98f9-d702484ddd61" },
-                    { "f4779104-790e-4161-baca-feb91883936d", "2829d0a9-180a-4e55-98f9-d702484ddd61" }
+                    { "a49bad94-7bcc-4324-b625-941054c939d7", "49928701-a2e8-4661-8104-2a8b03141f08" },
+                    { "b009b5ff-1953-4296-8028-f6f49d6e5abb", "49928701-a2e8-4661-8104-2a8b03141f08" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Usuario",
                 columns: new[] { "UsuarioId", "DataNascimento", "Foto", "Nome" },
-                values: new object[] { "2829d0a9-180a-4e55-98f9-d702484ddd61", new DateTime(1997, 3, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), "/img/users/avatar.png", "Heloisa Galiano de Moraes" });
+                values: new object[] { "49928701-a2e8-4661-8104-2a8b03141f08", new DateTime(1997, 3, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), "/img/users/avatar.png", "Heloisa Galiano de Moraes" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -410,11 +404,6 @@ namespace Pokedex.Migrations
                 name: "IX_Pokemon_RegiaoId",
                 table: "Pokemon",
                 column: "RegiaoId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_PokemonTipo_PokemonNumero1",
-                table: "PokemonTipo",
-                column: "PokemonNumero1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PokemonTipo_TipoId",
