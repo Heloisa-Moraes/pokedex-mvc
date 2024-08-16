@@ -31,9 +31,13 @@ para atualizar a ferramenta que já foi instalada: dotnet tool update --global d
 
 dotnet ef  migrations add inicializando-banco 
 
+
+comando para realizar toda vez que for mexer no projeto: 
 criar o banco: 
 
 dotnet ef database update
+
+2º depois colar tudo que está na pasta dados, no arquivo inserir dados no mysql e executar 
 
 
 
