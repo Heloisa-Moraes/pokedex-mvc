@@ -40,4 +40,14 @@ dotnet ef database update
 2º depois colar tudo que está na pasta dados, no arquivo inserir dados no mysql e executar 
 
 
+esse comando eu não sei o que faz, mas ele está aqui; 
+dotnet-aspnet-codegenerator controller 
+-name <NomeController>
+-m <ClasseDados>
+-dc <ClasseContexto>
+-l <DefinirUmLayout> // -udl ParaLayoutPadrão
+--relativeFolderPath Controllers 
 
+
+
+dotnet-aspnet-codegenerator controller -name TiposController -m Tipo -dc AppDbContext -l "~/Views/Shared/_LayoutAdmin.cshtml" --relativeFolderPath Controllers

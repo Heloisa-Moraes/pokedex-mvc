@@ -8,6 +8,7 @@ namespace Pokedex.ViewModels;
         [Required(ErrorMessage = "Informe seu email ou nome de usuário")]
         public string Email { get; set; }
         
+        [DataType(DataType.Password)]
         [Display(Name = "Senha de Acesso", Prompt ="Senha e Acesso")]
         [Required(ErrorMessage = "Informe sua senha de acesso")]
 
